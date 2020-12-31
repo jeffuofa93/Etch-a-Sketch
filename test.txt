@@ -1,1 +1,4 @@
-hello
+Okay so the idea is to make a grid that changes color when you hover over it
+
+first we need to make the grid
+

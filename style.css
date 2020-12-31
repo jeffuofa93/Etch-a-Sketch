@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+
+}
+
+.container {
+    display: flex;
+    border: solid black;
+    align-content: stretch;
+
+}
+
+.container .col {
+    flex: 1;
+}
+
+
+.container .col .row {
+    flex: 1;
+    border: solid black;
+    margin: 0;
+
+}
