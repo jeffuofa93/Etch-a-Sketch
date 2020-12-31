@@ -9,18 +9,27 @@ for (i=0;i<size;i++){
     columnName = i.toString();
     columnName = document.createElement("div");
     columnName.classList.add("col");
-    columnName.textContent = "Column";
+    //columnName.textContent = "Column";
     for (j=0;j<size;j++){
         rowName = i.toString()+ j.toString();
         rowName = document.createElement("div");
         rowName.classList.add("row");
         rowName.textContent = "Row";
-        rowName.style.minHeight = 1/10 + "vh";
+        rowName.style.minHeight = (1/size)*100 + "vh";
         columnName.appendChild(rowName);
     }
     container.appendChild(columnName);
 
 }
+const grid = Array.from(document.querySelectorAll(".row"))
+//console.log(grid);
+grid.forEach((row) => {
+    row.addEventListener("mouseover",() => {
+        console.log("ran")
+        row.style.backgroundColor = "black";
+    });
+});
+
 
 // EOF comment
 

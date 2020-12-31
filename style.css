@@ -15,13 +15,11 @@ body{
 
 .container .col {
     flex: 1;
-    border: solid green;
 
 }
 
 
 .container .col .row {
     flex: 1;
-    border: solid orange;
 
 }
