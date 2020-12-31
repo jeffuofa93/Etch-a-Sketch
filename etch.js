@@ -9,12 +9,13 @@ for (i=0;i<size;i++){
     columnName = i.toString();
     columnName = document.createElement("div");
     columnName.classList.add("col");
-    columnName.textContent = "Does this work";
-    for (j=0;j<size-1;j++){
+    columnName.textContent = "Column";
+    for (j=0;j<size;j++){
         rowName = i.toString()+ j.toString();
         rowName = document.createElement("div");
         rowName.classList.add("row");
-        rowName.textContent = "Does this work Row";
+        rowName.textContent = "Row";
+        rowName.style.minHeight = 1/10 + "vh";
         columnName.appendChild(rowName);
     }
     container.appendChild(columnName);

@@ -1,23 +1,27 @@
 body{
     margin: 0;
+    padding: 0;
 
 }
 
 .container {
     display: flex;
+    flex-direction: row;
     border: solid black;
-    align-content: stretch;
+    min-height: 100vh;
+    flex-wrap: wrap;
 
 }
 
 .container .col {
     flex: 1;
+    border: solid green;
+
 }
 
 
 .container .col .row {
     flex: 1;
-    border: solid black;
-    margin: 0;
+    border: solid orange;
 
 }
