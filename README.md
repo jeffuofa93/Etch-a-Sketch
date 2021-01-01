@@ -1,6 +1,9 @@
 # Etch-a-Sketch
 
+This project is part the The Odin Project curriculum (https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project)
+
 Overview:
+This project is from the Project Odin Cirriculm
 For this project I created a rainbow colored sketch pad. The program works by generating a random rgb value for each square when the user's mouse hovers over it. Each square also gets progessivly darker on each hover eventually turning completly black on the 10th hover event. At the user's discretion they can reset the grid to any size they specify with the reset grid button. The grid internally restricts the size to 100x100. The users input is prompted and recorded from a pop up  
 
 External Help:
