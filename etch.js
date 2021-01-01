@@ -29,7 +29,13 @@ function buildGrid(size,columnName,rowName,container,button) {
             rowName = document.createElement("div");
             rowName.classList.add("row");
             rowName.style.minHeight = (1/size)*100 + "vh";
-            rowName.setAttribute("id",i.toString()+j.toString());
+
+            /* THIS IS WHAT I DON'T UNDERSTAND WHY IT DOESNT WORK
+            rowName.addEventListener("mouseover",() => {
+                rowName.style.backgroundColor = generateRGBStr();
+                //row.style.opacity = "black";
+            });
+             */
             columnName.appendChild(rowName);
 
             if (i===(Math.floor(size/2))&& (j===0)){
@@ -40,6 +46,8 @@ function buildGrid(size,columnName,rowName,container,button) {
         container.appendChild(columnName);
     }
     // add event to each item in the grid
+
+    /*THIS IS THE ONE THAT WORKS BUT I HAVE TO RELOOP OVER THE OBJECTS */
     grid = document.querySelectorAll(".row");
     grid.forEach((row) => {
         row.addEventListener("mouseover",() => {
