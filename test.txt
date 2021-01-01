@@ -2,3 +2,10 @@ Okay so the idea is to make a grid that changes color when you hover over it
 
 first we need to make the grid
 
+function getRndInteger(max) {
+    return Math.floor((Math.random() * max)+1);
+}
+
+function generateRGBStr(val=256) {
+    return 'rgb(' + getRndInteger(256) + ',' + getRndInteger(256) + ',' + getRndInteger(256) + ')';
+}
