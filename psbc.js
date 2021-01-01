@@ -1,3 +1,5 @@
+// Not my function from existing popular git repo for lightening and darkening colors
+
 export let pSBC;
 pSBC = (p, c0, c1, l) => {
     let r, g, b, P, f, t, h, i = parseInt, m = Math.round, a = typeof (c1) == "string";
