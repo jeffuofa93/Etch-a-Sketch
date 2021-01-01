@@ -1,34 +1,106 @@
 
+
 let size = 16;
-let counter = 0;
 let columnName;
 let rowName;
+let grid;
 const container = document.querySelector(".container");
+const button = document.createElement("button");
 
-for (i=0;i<size;i++){
-    columnName = i.toString();
-    columnName = document.createElement("div");
-    columnName.classList.add("col");
-    //columnName.textContent = "Column";
-    for (j=0;j<size;j++){
-        rowName = i.toString()+ j.toString();
-        rowName = document.createElement("div");
-        rowName.classList.add("row");
-        rowName.textContent = "Row";
-        rowName.style.minHeight = (1/size)*100 + "vh";
-        columnName.appendChild(rowName);
+// Create button object
+button.textContent = "Reset Grid"
+button.style.backgroundColor = "grey";
+button.style.borderColor = "black";
+
+function buildGrid(size,columnName,rowName,container,button) {
+    for (i=0;i<size;i++){
+        columnName = document.createElement("div");
+        columnName.classList.add("col");
+        for (j=0;j<size;j++){
+            rowName = document.createElement("div");
+            rowName.classList.add("row");
+            rowName.style.minHeight = (1/size)*100 + "vh";
+            rowName.setAttribute("id",i.toString()+j.toString());
+            columnName.appendChild(rowName);
+
+            if (i===(Math.floor(size/2))&& (j===0)){
+                rowName.appendChild(button);
+            }
+        }
+        //append column to container
+        container.appendChild(columnName);
     }
-    container.appendChild(columnName);
-
+    // add event to each item in the grid
+    grid = document.querySelectorAll(".row");
+    grid.forEach((row) => {
+        row.addEventListener("mouseover",() => {
+            row.style.backgroundColor = "black";
+        });
+    });
 }
-const grid = Array.from(document.querySelectorAll(".row"))
-//console.log(grid);
+
+function eraseGrid(size,columnName,rowName,button,container){
+    while (container.firstChild){
+        container.removeChild(container.firstChild)
+    }
+    buildGrid(size,columnName,rowName,container,button)
+}
+
+function buttonEvent (size,columnName,rowName,button,container,grid) {
+    button.addEventListener("click",() => {
+        grid.forEach((row) => {
+            if (row.style.backgroundColor === "black") {
+                row.style.backgroundColor = "white"
+            }
+        });
+        size = prompt("Enter the size of the new grid");
+        size = parseInt(size);
+        eraseGrid(size,columnName,rowName,button,container);
+    });
+}
+
+
+buildGrid(size,columnName,rowName,container,button)
+buttonEvent(size,columnName,rowName,button,container,grid);
+
+
+
+
+/*
 grid.forEach((row) => {
     row.addEventListener("mouseover",() => {
-        console.log("ran")
-        row.style.backgroundColor = "black";
+        //row.style.backgroundColor = "black";
+        rowName.classList.remove("row");
+        rowName.classList.add("rowDark");
     });
 });
+
+ */
+
+/*
+button.addEventListener("click",() => {
+    grid.forEach((row) => {
+        if (row.style.backgroundColor === "black"){
+            row.style.backgroundColor = "white"
+        }
+
+
+
+    });
+    size = prompt("Enter the size of the new grid");
+    size = parseInt(size);
+
+    buildGrid(size,columnName,rowName,container,button);
+
+});
+
+
+/*
+            rowName.addEventListener("mouseover",()=>{
+                rowName.classList.remove("row");
+                rowName.classList.add("rowDark");
+            });
+             */
 
 
 // EOF comment

@@ -21,5 +21,14 @@ body{
 
 .container .col .row {
     flex: 1;
+    background-color: white;
 
+}
+
+
+
+
+
+.container .button {
+    background-color: red;
 }
