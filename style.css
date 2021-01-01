@@ -29,6 +29,7 @@ body{
 
 
 
+
 .container .button {
-    background-color: red;
+    flex: 1;
 }

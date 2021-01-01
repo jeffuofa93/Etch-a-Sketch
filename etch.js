@@ -6,11 +6,20 @@ let rowName;
 let grid;
 const container = document.querySelector(".container");
 const button = document.createElement("button");
-
+let color;
 // Create button object
+button.classList.add("button");
 button.textContent = "Reset Grid"
 button.style.backgroundColor = "grey";
 button.style.borderColor = "black";
+
+function getRndInteger(max) {
+    return Math.floor((Math.random() * max)+1);
+}
+
+function generateRGBStr(val=256) {
+    return 'rgb(' + getRndInteger(256) + ',' + getRndInteger(256) + ',' + getRndInteger(256) + ')';
+}
 
 function buildGrid(size,columnName,rowName,container,button) {
     for (i=0;i<size;i++){
@@ -34,7 +43,8 @@ function buildGrid(size,columnName,rowName,container,button) {
     grid = document.querySelectorAll(".row");
     grid.forEach((row) => {
         row.addEventListener("mouseover",() => {
-            row.style.backgroundColor = "black";
+            row.style.backgroundColor = generateRGBStr();
+            //row.style.opacity = "black";
         });
     });
 }
@@ -49,12 +59,14 @@ function eraseGrid(size,columnName,rowName,button,container){
 function buttonEvent (size,columnName,rowName,button,container,grid) {
     button.addEventListener("click",() => {
         grid.forEach((row) => {
-            if (row.style.backgroundColor === "black") {
-                row.style.backgroundColor = "white"
+            if (row.style.backgroundColor !== "white") {
+                row.style.backgroundColor = "white";
+
             }
         });
         size = prompt("Enter the size of the new grid");
         size = parseInt(size);
+        if (size > 100) size = 100;
         eraseGrid(size,columnName,rowName,button,container);
     });
 }
